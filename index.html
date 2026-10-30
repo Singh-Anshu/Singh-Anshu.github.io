@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Anshu Singh | Android Developer</title>
+<meta name="description" content="Anshu Singh, Android Developer in Mumbai with 5 years of experience in Kotlin, Jetpack Compose and MVVM. Builds POS and order management apps.">
+<meta property="og:title" content="Anshu Singh | Android Developer">
+<meta property="og:description" content="5 years building production Android apps in Kotlin and Jetpack Compose.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧾</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#E9EDF1;
+  --surface:#F7F9FB;
+  --paper:#FFFFFF;
+  --ink:#16202E;
+  --muted:#5A6676;
+  --line:#CDD5DE;
+  --accent:#2244CC;
+  --accent-ink:#FFFFFF;
+  --android:#2E8B57;
+  --shadow:0 18px 40px -18px rgba(22,32,46,.35);
+  --display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body:"IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, "Courier New", monospace;
+  color-scheme:light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#10161F;
+    --surface:#18202B;
+    --paper:#F2F4F6;
+    --ink:#E6EBF1;
+    --muted:#98A4B3;
+    --line:#2A3441;
+    --accent:#7C95FF;
+    --accent-ink:#0E1320;
+    --android:#5CC28A;
+    --shadow:0 18px 40px -18px rgba(0,0,0,.7);
+    color-scheme:dark;
+  }
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+img{max-width:100%}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+
+/* Nav */
+nav{display:flex;justify-content:space-between;align-items:center;padding:22px 0}
+.logo{font-family:var(--display);font-weight:800;font-size:1.15rem;color:var(--ink);text-decoration:none}
+nav ul{list-style:none;display:flex;gap:22px;margin:0;padding:0}
+nav ul a{color:var(--muted);text-decoration:none;font-weight:500;font-size:.95rem}
+nav ul a:hover{color:var(--ink)}
+
+/* Hero */
+.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:start;padding:48px 0 88px}
+.hero h1{font-family:var(--display);font-weight:800;font-size:clamp(2.8rem,7vw,5.2rem);line-height:.95;letter-spacing:-.03em;margin:0 0 22px}
+.role{font-family:var(--display);font-weight:500;font-size:clamp(1.2rem,2.4vw,1.55rem);margin:0 0 18px;color:var(--ink)}
+.intro{color:var(--muted);max-width:52ch;margin:0 0 30px}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;font-weight:600;text-decoration:none;font-size:.98rem;border:2px solid var(--accent)}
+.btn.primary{background:var(--accent);color:var(--accent-ink)}
+.btn.ghost{color:var(--accent);background:transparent}
+.btn svg{width:18px;height:18px}
+.socials{display:flex;gap:18px;margin-top:28px;font-size:.95rem}
+.socials a{color:var(--muted);text-decoration:none;display:inline-flex;gap:6px;align-items:center}
+.socials a:hover{color:var(--ink)}
+.socials svg{width:18px;height:18px}
+
+/* Receipt: the one bold element */
+.printer{position:relative;padding-top:14px}
+.printer::before{content:"";position:absolute;top:0;left:0;right:0;height:22px;border-radius:12px;background:var(--ink);opacity:.9}
+.receipt{position:relative;margin:0 16px;background:var(--paper);color:#1C2430;font-family:var(--mono);font-size:.84rem;line-height:1.55;padding:28px 24px 34px;box-shadow:var(--shadow);
+  -webkit-mask:radial-gradient(circle 7px at 50% 100%,#0000 98%,#000) 50% 100%/18px 100% repeat-x;
+          mask:radial-gradient(circle 7px at 50% 100%,#0000 98%,#000) 50% 100%/18px 100% repeat-x;
+  transform-origin:top;animation:print 1.6s steps(14,end) .3s both}
+@keyframes print{from{clip-path:inset(0 0 100% 0)}to{clip-path:inset(0 0 0 0)}}
+@media (prefers-reduced-motion: reduce){.receipt{animation:none}html{scroll-behavior:auto}}
+.receipt .c{text-align:center}
+.receipt .store{font-weight:600;font-size:1rem;letter-spacing:.04em}
+.receipt hr{border:0;border-top:1px dashed #9AA3AE;margin:12px 0}
+.receipt .row{display:flex;justify-content:space-between;gap:12px}
+.receipt .row span:last-child{text-align:right;white-space:nowrap}
+.receipt .total{font-weight:600;font-size:.98rem}
+.barcode{height:46px;margin:16px auto 6px;max-width:220px;background:repeating-linear-gradient(90deg,#1C2430 0 2px,transparent 2px 4px,#1C2430 4px 5px,transparent 5px 8px,#1C2430 8px 11px,transparent 11px 12px,#1C2430 12px 13px,transparent 13px 16px)}
+.receipt a{color:#1C2430}
+
+/* Sections */
+section{padding:72px 0;border-top:1px solid var(--line)}
+.sec-head{display:grid;grid-template-columns:260px 1fr;gap:40px}
+h2{font-family:var(--display);font-weight:700;font-size:clamp(1.7rem,3.4vw,2.3rem);letter-spacing:-.02em;line-height:1.1;margin:0}
+.sec-note{color:var(--muted);margin:10px 0 0;font-size:.95rem}
+.prose p{margin:0 0 14px;max-width:62ch}
+.prose strong{color:var(--ink)}
+
+/* Projects */
+.project{display:grid;grid-template-columns:1fr auto;gap:8px 24px;padding:28px 0;border-bottom:1px solid var(--line)}
+.project:first-child{padding-top:0}
+.project:last-child{border-bottom:0}
+.project h3{font-family:var(--display);font-weight:700;font-size:1.45rem;margin:0;letter-spacing:-.01em}
+.project .kind{color:var(--muted);font-size:.95rem;margin:2px 0 12px}
+.project ul{margin:0 0 14px;padding-left:20px;max-width:62ch}
+.project li{margin-bottom:4px}
+.project .stack{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.stack li{font-size:.82rem;padding:3px 10px;border:1px solid var(--line);border-radius:6px;color:var(--muted);background:var(--surface)}
+.play{align-self:start;display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:10px;background:var(--surface);border:1px solid var(--line);color:var(--ink);text-decoration:none;font-weight:600;font-size:.92rem;white-space:nowrap}
+.play:hover{border-color:var(--android)}
+.play svg{width:18px;height:18px;color:var(--android)}
+.feature{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px 24px;margin-top:6px;max-width:62ch}
+.feature b{display:block;font-family:var(--display);font-size:1.05rem;margin-bottom:4px}
+.feature p{margin:0;color:var(--muted);font-size:.97rem}
+
+/* Experience timeline */
+.timeline{list-style:none;margin:0;padding:0;position:relative}
+.timeline::before{content:"";position:absolute;left:6px;top:8px;bottom:8px;width:2px;background:var(--line)}
+.timeline li{position:relative;padding:0 0 30px 34px}
+.timeline li:last-child{padding-bottom:0}
+.timeline li::before{content:"";position:absolute;left:0;top:7px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:3px solid var(--accent)}
+.timeline .when{font-family:var(--mono);font-size:.82rem;color:var(--muted)}
+.timeline h3{font-family:var(--display);font-size:1.2rem;margin:2px 0 2px}
+.timeline .where{color:var(--muted);font-size:.95rem;margin:0 0 6px}
+.timeline p{margin:0;max-width:62ch}
+
+/* Skills */
+.skills{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px 40px}
+.skills h3{font-family:var(--display);font-size:1.05rem;margin:0 0 8px}
+.skills p{margin:0;color:var(--muted)}
+
+/* Contact */
+.contact{text-align:left}
+.contact .big{font-family:var(--display);font-weight:800;font-size:clamp(1.6rem,4.6vw,3rem);letter-spacing:-.02em;color:var(--ink);text-decoration:none;word-break:break-word;border-bottom:3px solid var(--accent)}
+.contact .big:hover{color:var(--accent)}
+.contact-list{display:flex;flex-wrap:wrap;gap:12px 28px;margin-top:28px;padding:0;list-style:none}
+.contact-list a{color:var(--muted)}
+footer{padding:28px 0 40px;color:var(--muted);font-size:.88rem;border-top:1px solid var(--line)}
+
+@media (max-width:860px){
+  .hero{grid-template-columns:1fr;gap:44px;padding-top:24px}
+  .printer{max-width:400px}
+  .sec-head{grid-template-columns:1fr;gap:24px}
+  nav ul{display:none}
+}
+@media (max-width:600px){
+  .project{grid-template-columns:1fr}
+  .play{justify-self:start;margin-top:4px}
+  .skills{grid-template-columns:1fr}
+  section{padding:56px 0}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav aria-label="Main">
+    <a class="logo" href="#top">Anshu Singh</a>
+    <ul>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero" id="top">
+    <div>
+      <h1>Anshu Singh</h1>
+      <p class="role">Android Developer, 5 years with Kotlin and Jetpack Compose</p>
+      <p class="intro">I build the apps that run retail counters: point-of-sale, order management and owner dashboards that talk to payment terminals, barcode scanners and thermal printers. Based in Mumbai.</p>
+      <div class="actions">
+        <a class="btn primary" href="resume.pdf" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+          Download resume
+        </a>
+        <a class="btn ghost" href="mailto:anshusingh7738@gmail.com">Email me</a>
+      </div>
+      <div class="socials">
+        <a href="https://www.linkedin.com/in/anshu-ashish-singh/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4V21H3zM9.5 9.75h3.8v1.6h.06c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.77 2.65 4.77 6.1V21h-4v-5.02c0-1.2-.02-2.74-1.67-2.74-1.67 0-1.93 1.3-1.93 2.65V21h-4z"/></svg>
+          LinkedIn
+        </a>
+        <a href="https://github.com/Singh-Anshu" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.56 9.56 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2z"/></svg>
+          GitHub
+        </a>
+      </div>
+    </div>
+
+    <div class="printer" aria-label="Summary printed as a receipt">
+      <div class="receipt">
+        <div class="c store">ANSHU SINGH</div>
+        <div class="c">Android Developer, Mumbai</div>
+        <div class="c">Since Oct 2021</div>
+        <hr>
+        <div class="row"><span>Experience</span><span>5 yrs</span></div>
+        <div class="row"><span>Crash-free sessions</span><span>98.8%</span></div>
+        <div class="row"><span>REST APIs integrated</span><span>70+</span></div>
+        <div class="row"><span>Endpoints under auth</span><span>259</span></div>
+        <div class="row"><span>US states, ID scan</span><span>50</span></div>
+        <div class="row"><span>Play Store downloads</span><span>100K+</span></div>
+        <hr>
+        <div class="row"><span>Kotlin, Compose, MVVM</span><span>1</span></div>
+        <div class="row"><span>Coroutines, Flow</span><span>1</span></div>
+        <div class="row"><span>Room, Retrofit, Dagger</span><span>1</span></div>
+        <div class="row"><span>PAX, Payroc, Sunmi, Star</span><span>1</span></div>
+        <hr>
+        <div class="row total"><span>STATUS</span><span>Open to roles</span></div>
+        <div class="barcode" aria-hidden="true"></div>
+        <div class="c"><a href="https://github.com/Singh-Anshu" target="_blank" rel="noopener">github.com/Singh-Anshu</a></div>
+        <div class="c">Thank you for visiting</div>
+      </div>
+    </div>
+  </header>
+</div>
+
+<main>
+  <section id="about">
+    <div class="wrap sec-head">
+      <div><h2>About</h2></div>
+      <div class="prose">
+        <p>I have spent the last 3.5 years at <strong>Apprication</strong> owning core modules of <strong>QuickVee</strong>, a POS and order management product used by retail stores in the US. My work sits close to the hardware: card terminals, receipt printers and barcode scanners, so reliability matters more than anything else.</p>
+        <p>I write <strong>Kotlin</strong> with <strong>MVVM</strong>, <strong>Jetpack Compose</strong>, <strong>Coroutines and Flow</strong>, and I care about the parts people do not see: token refresh that never logs a cashier out, lists that page smoothly through thousands of products, and crash rates that stay low.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="wrap sec-head">
+      <div>
+        <h2>Work</h2>
+        <p class="sec-note">Live apps you can open on Google Play.</p>
+      </div>
+      <div>
+        <article class="project">
+          <div>
+            <h3>QuickVee POS</h3>
+            <p class="kind">Point-of-sale app for retail stores, Apprication</p>
+            <ul>
+              <li>Rebuilt the Purchase Order module from scratch: 6 screens, 11 dialogs, multi-store routing and UPC scanning.</li>
+              <li>Built the partial-refund and exchange engine with per-item selection, category tax splits and loyalty credit.</li>
+              <li>Built 21+ age verification with driver’s licence scanning for all 50 US states and manager-PIN override.</li>
+              <li>Integrated PAX and Payroc terminals and Star and Sunmi thermal printers, with 5 printed reports.</li>
+            </ul>
+            <ul class="stack" aria-label="Tech used">
+              <li>Kotlin</li><li>Jetpack Compose</li><li>MVVM</li><li>Paging 3</li><li>Room</li><li>Retrofit</li><li>Dagger</li>
+            </ul>
+          </div>
+          <a class="play" href="https://play.google.com/store/apps/details?id=com.apprication.quickveemanager&hl=en_IN" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.6 9.48l1.84-3.18a.38.38 0 0 0-.66-.38l-1.86 3.22A11.4 11.4 0 0 0 12 8.08c-1.76 0-3.42.39-4.92 1.06L5.22 5.92a.38.38 0 0 0-.66.38L6.4 9.48A10.8 10.8 0 0 0 1 18h22a10.8 10.8 0 0 0-5.4-8.52zM7 15.25a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5zm10 0a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5z"/></svg>
+            Open on Google Play
+          </a>
+        </article>
+
+        <article class="project">
+          <div>
+            <h3>QuickVee Owner App</h3>
+            <p class="kind">Store owner companion app, Apprication</p>
+            <ul>
+              <li>Built Inventory, Brands, Tags and Customer modules end-to-end, including customer merge and store credits.</li>
+              <li>Added Paging 3 across the app and a WebView JS-native bridge for CSV export, PDF sharing and secure sign-in.</li>
+            </ul>
+            <ul class="stack" aria-label="Tech used">
+              <li>Kotlin</li><li>Coroutines</li><li>Flow</li><li>WebView bridge</li><li>OkHttp</li>
+            </ul>
+          </div>
+          <a class="play" href="https://play.google.com/store/apps/details?id=com.apprication.merchantech&hl=en_IN" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.6 9.48l1.84-3.18a.38.38 0 0 0-.66-.38l-1.86 3.22A11.4 11.4 0 0 0 12 8.08c-1.76 0-3.42.39-4.92 1.06L5.22 5.92a.38.38 0 0 0-.66.38L6.4 9.48A10.8 10.8 0 0 0 1 18h22a10.8 10.8 0 0 0-5.4-8.52zM7 15.25a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5zm10 0a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5z"/></svg>
+            Open on Google Play
+          </a>
+        </article>
+
+        <article class="project">
+          <div>
+            <h3>Shriram MyExpense</h3>
+            <p class="kind">Expense and approvals app, NOVAC Technology Solutions</p>
+            <ul>
+              <li>Built features for an app with 100K+ Play Store downloads, on Android (Java) and iOS (Flutter).</li>
+              <li>Built the 360 Dashboard with charts and lists, and approve, reject and modify flows for approvals.</li>
+            </ul>
+            <ul class="stack" aria-label="Tech used">
+              <li>Java</li><li>Flutter</li><li>Dart</li><li>SQLite</li>
+            </ul>
+          </div>
+        </article>
+
+        <div class="feature">
+          <b>How I got QuickVee to 98.8% crash-free</b>
+          <p>I tracked crashes with Firebase Crashlytics and memory leaks with LeakCanary, then fixed them module by module. I also built one OkHttp interceptor that refreshes tokens and handles 401 errors for all 259 API endpoints, so session expiry is handled in a single place across the app.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wrap sec-head">
+      <div><h2>Experience</h2></div>
+      <ol class="timeline">
+        <li>
+          <span class="when">Mar 2023 – Present</span>
+          <h3>Android Developer</h3>
+          <p class="where">Apprication Pvt Ltd, Mumbai</p>
+          <p>Own core modules of the QuickVee POS and Owner apps. Integrated 70+ REST APIs and designed the ViewModel and Repository layers.</p>
+        </li>
+        <li>
+          <span class="when">Nov 2022 – Mar 2023</span>
+          <h3>Android Developer</h3>
+          <p class="where">Rajkamal Barscan Systems Pvt Ltd, Mumbai</p>
+          <p>Built Android apps from scratch in Java with Retrofit and Room, plus .NET services and SQL Server procedures. Worked directly with clients.</p>
+        </li>
+        <li>
+          <span class="when">Oct 2021 – Nov 2022</span>
+          <h3>Software Developer</h3>
+          <p class="where">NOVAC Technology Solutions Pvt Ltd, Navi Mumbai</p>
+          <p>Built features for Shriram MyExpense on Android and iOS, including barcode scanning in Flutter.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap sec-head">
+      <div><h2>Skills</h2></div>
+      <div class="skills">
+        <div><h3>Languages</h3><p>Kotlin, Java, SQL</p></div>
+        <div><h3>Android and architecture</h3><p>Android SDK, Jetpack Compose, Navigation, MVVM, Repository pattern, Dagger, WebView, push notifications</p></div>
+        <div><h3>Async, data and networking</h3><p>Coroutines, Flow, Paging 3, Room, SQLite, Retrofit, OkHttp, REST APIs</p></div>
+        <div><h3>Quality</h3><p>Firebase Crashlytics, FCM, LeakCanary, performance tuning</p></div>
+        <div><h3>Hardware and payments</h3><p>PAX and Payroc terminals, Star and Sunmi printers, barcode scanning, payment gateways</p></div>
+        <div><h3>Also</h3><p>Flutter, Git, Gradle, Claude Code. B.Sc. IT, Prahladrai Dalmia Lions College. DSA course (LearnYard, 2024), regular on LeetCode.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="wrap sec-head">
+      <div><h2>Contact</h2><p class="sec-note">Open to Android roles in Mumbai or remote.</p></div>
+      <div>
+        <a class="big" href="mailto:anshusingh7738@gmail.com">anshusingh7738@gmail.com</a>
+        <ul class="contact-list">
+          <li><a href="tel:+917219785280">+91 72197 85280</a></li>
+          <li><a href="https://www.linkedin.com/in/anshu-ashish-singh/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://github.com/Singh-Anshu" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="resume.pdf" download>Resume (PDF)</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 Anshu Singh. Languages: English, Hindi, Marathi.</div>
+</footer>
+</body>
+</html>
