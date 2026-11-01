@@ -135,6 +135,19 @@ h2{font-family:var(--display);font-weight:700;font-size:clamp(1.7rem,3.4vw,2.3re
 .skills h3{font-family:var(--display);font-size:1.05rem;margin:0 0 8px}
 .skills p{margin:0;color:var(--muted)}
 
+/* Certifications */
+.cert{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:28px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px}
+.cert-img{display:block;border-radius:8px;overflow:hidden;border:1px solid var(--line);background:#fff;line-height:0}
+.cert-img img{width:100%;height:auto;display:block;transition:transform .25s ease}
+.cert-img:hover img{transform:scale(1.02)}
+.cert h3{font-family:var(--display);font-weight:700;font-size:1.3rem;margin:0 0 4px;letter-spacing:-.01em}
+.cert .issuer{color:var(--muted);margin:0 0 14px}
+.cert .meta{font-family:var(--mono);font-size:.84rem;color:var(--muted);margin:0 0 14px}
+.cert p{margin:0 0 16px}
+.cert .view{font-weight:600}
+@media (prefers-reduced-motion: reduce){.cert-img img{transition:none}}
+@media (max-width:700px){.cert{grid-template-columns:1fr}}
+
 /* Contact */
 .contact{text-align:left}
 .contact .big{font-family:var(--display);font-weight:800;font-size:clamp(1.6rem,4.6vw,3rem);letter-spacing:-.02em;color:var(--ink);text-decoration:none;word-break:break-word;border-bottom:3px solid var(--accent)}
@@ -165,6 +178,7 @@ footer{padding:28px 0 40px;color:var(--muted);font-size:.88rem;border-top:1px so
       <li><a href="#work">Work</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#skills">Skills</a></li>
+      <li><a href="#certifications">Certifications</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
@@ -334,6 +348,24 @@ footer{padding:28px 0 40px;color:var(--muted);font-size:.88rem;border-top:1px so
         <div><h3>Quality</h3><p>Firebase Crashlytics, FCM, LeakCanary, performance tuning</p></div>
         <div><h3>Hardware and payments</h3><p>PAX and Payroc terminals, Star and Sunmi printers, barcode scanning, payment gateways</p></div>
         <div><h3>Also</h3><p>Flutter, Git, Gradle, Claude Code. B.Sc. IT, Prahladrai Dalmia Lions College. DSA course (LearnYard, 2024), regular on LeetCode.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="certifications">
+    <div class="wrap sec-head">
+      <div><h2>Certifications</h2></div>
+      <div class="cert">
+        <a class="cert-img" href="learnyard-dsa-certificate.jpg" target="_blank" rel="noopener" aria-label="Open the full LearnYard certificate">
+          <img src="learnyard-dsa-certificate.jpg" alt="LearnYard certificate of completion for the 100% Job Ready DSA Course, awarded to Anshu Singh on July 13, 2024" loading="lazy" width="1600" height="1130">
+        </a>
+        <div>
+          <h3>100% Job Ready DSA Course</h3>
+          <p class="issuer">LearnYard</p>
+          <p class="meta">Completed July 13, 2024</p>
+          <p>A Data Structures and Algorithms cohort that ran from January to July 2024. I have kept practising on LeetCode since.</p>
+          <a class="view" href="learnyard-dsa-certificate.jpg" target="_blank" rel="noopener">View certificate</a>
+        </div>
       </div>
     </div>
   </section>
